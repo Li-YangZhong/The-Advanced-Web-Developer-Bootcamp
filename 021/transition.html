@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background: #9b59b6;
+            color: white;
+            font-size: 17px;
+            border-radius: 20px;
+        }
+        
+        .animated {
+            transition-property: background-color, border-radius;;
+            transition-duration: 1s, 1s;
+            transition-delay: 5s, 2s;
+        }
+        .box:hover {
+            background-color: #e74c3c;
+            transform: scale(2);
+            transform-origin: top left;
+            border-radius: 50px;
+            /* opacity: 0.5 */
+        }
+    </style>
+</head>
+<body>
+    <p class="box">BORING</p>
+    <p class="animated box">ANIMATED</p>
+</body>
+</html>
