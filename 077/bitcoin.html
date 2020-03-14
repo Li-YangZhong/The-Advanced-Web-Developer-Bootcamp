@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bitcoin Current Price is: <span id="price">fake data</span></h1>
+    <button>Refresh Data</button>
+    <script>
+        var btn = document.querySelector('button')
+        var priceDisp = document.querySelector('#price')
+        var currency = 'EUR'
+
+        btn.addEventListener('click', function() {
+            var XHR = new XMLHttpRequest()
+            
+            XHR.onreadystatechange = function() {
+                if(XHR.readyState === 4 && XHR.status == 200) {
+                    var data = JSON.parse(XHR.responseText)
+                    
+                    var price = data.bpi[currency].rate
+                    priceDisp.innerText = price + currency
+                }
+            }
+            var url = 'https://api.coindesk.com/v1/bpi/currentprice.json'
+            XHR.open('GET', url)
+            XHR.send()
+        })
+
+    </script>
+</body>
+</html>
