@@ -12,9 +12,9 @@
         var url = 'https://api.coindesk.com/v1/bpi/currentprice.json'
 
         fetch(url)
-        .then(function(data){
-            console.log(data)
-            console.log(data.status)
+        .then(function(response){
+            console.log(response)
+            console.log(response.json())
         })
 
     </script>
