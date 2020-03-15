@@ -15,7 +15,10 @@
 
         fetch(url, {
             method: 'POST',
-            body: 'THIS IS THE BODY OF THE REQUEST!!!'
+            body: JSON.stringify({
+                name: 'blue',
+                login: 'bluecat'
+            })
     })
             .then(function (response) {
                 console.log(response)
