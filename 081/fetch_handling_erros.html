@@ -18,12 +18,7 @@
             // var url = 'https://cn.bing.com/'
             // var url = 'https://api.coindesk.com/v1/bpi/currentprice.json'
             fetch(url)
-            .then(function(request){
-                if(!request.ok) {
-                    throw Error(request.status)
-                }
-                return request
-                })
+            .then(handleErrors)
             .then(function(request) {
                 console.log('EVERYTHING IS FINE!')
                 console.log(request)
@@ -32,6 +27,13 @@
                 console.log(error)
             })
         })
+
+        function handleErrors (request) {
+            if(!request.ok) {
+                    throw Error(request.status)
+                }
+                return request
+        }
     </script>
 </body>
 
