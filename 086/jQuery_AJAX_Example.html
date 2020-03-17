@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.js"></script>
+    <button id="btn">Click Me</button>
+    <p></p>
+    <script>
+        $('#btn').click(function(){
+            $.ajax({
+                method: 'GET',
+                // url: 'https://baconipsum.com/api/?type=meat-and-filler'
+                url: 'https://api.coindesk.com/v1/bpi/currentprice.json',
+                dataType: 'json'
+            })
+            .done(function(data){
+                console.log(data)
+            })
+            .fail(function(){
+                alert('OH NO! FAILED1')
+            })
+        })
+    </script>
+</body>
+</html>
