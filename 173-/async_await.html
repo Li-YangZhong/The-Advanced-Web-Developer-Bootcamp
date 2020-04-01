@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        async function getMovieData(){
+            console.log('starting')
+            var movieData = await $.getJSON('https://omdbapi.com?t=titanic&apikey=thewdb')
+
+            console.log('all done!')
+            console.log(movieData)
+        }
+        getMovieData()
+    </script>
+</body>
+
+</html>

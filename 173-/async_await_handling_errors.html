@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        async function getUser(user){
+            try {
+                var response = await $.getJSON(`https://api.github.com/users/${user}`)
+                console.log(response.name)
+            } catch(e){
+                console.log('USER does not exist!')
+            }
+        }
+
+        getUser('elie')
+        getUser('foo!!!')
+    </script>
+</body>
+
+</html>

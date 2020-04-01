@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        async function getMostFollowers(...usernames) {
+            let baseUrl = 'https://api.github.com/users/'
+            let urls = usernames.map(username => $.getJSON(baseUrl + username))
+            let results = await Promise.all(urls)
+            let max = data.sort((a, b) => a.followers < b.followers)[0]
+            return `${max.name} has the most followers with ${max.followers}`
+       }
+
+        getMostFollowers('elie', 'tigarcia', 'colt').then(function (data) {
+            console.log(data)
+        })
+    </script>
+</body>
+
+</html>

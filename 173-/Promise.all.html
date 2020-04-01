@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        function getMovie(title) {
+            return $.getJSON(`https://omdbapi.com?t=${title}&apikey=thewdb`)
+        }
+
+        var titanicPromise = getMovie('titanic')
+        var shrekPromise = getMovie('shrek')
+        var braveheartPromise = getMovie('braveheart')
+
+        Promise.all([titanicPromise, shrekPromise, braveheartPromise]).then(function (movies) {
+            return movies.forEach(function (value) {
+                console.log(value.Year)
+            })
+        })
+        braveheartPromise.then(function (value) {
+            console.log(value)
+        })    
+    </script>
+</body>
+
+</html>

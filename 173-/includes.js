@@ -1,0 +1,1 @@
+console.log('awesome'.includes('some')) // true
